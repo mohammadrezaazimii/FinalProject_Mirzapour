@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "مدیریت";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="alert alert-success text-center  mt-5 mb-5">
+    به بخش مدیریت خوش آمدید
+</div>
+<div class="text-center  row m-4" style="display:flex; gap:15px; justify-content:space-around; ">
+
+    <a asp-controller="ProNews" asp-action="Index" class="btn btn-outline-primary " style="width:250px;">خبر های اصلی</a>
+    <a asp-controller="ShortNews" asp-action="Index" class="btn btn-outline-primary  "style="width:250px;">خبر های کوتاه</a>
+    <a asp-controller="ShortTextNews" asp-action="Index" class="btn btn-outline-primary"style="width:250px;">خبر های لحظه ای</a>
+    <a asp-controller="Banners" asp-action="Index" class="btn btn-outline-primary "style="width:250px;">اسلایدر تبلیغاتی</a>
+</div>
+<div class="text-center  row">
+    <div class="col-12">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary col-12">بازگشت به صفحه ی اصلی اخبار</a>
+    </div>
+</div>

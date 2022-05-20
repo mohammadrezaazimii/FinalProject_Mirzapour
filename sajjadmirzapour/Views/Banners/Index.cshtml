@@ -1,0 +1,50 @@
+﻿@model IEnumerable<sajjadmirzapour.Models.Banner>
+
+@{
+    ViewData["Title"] = "بنر تبلیغاتی";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-center">بنر های تبلیغی</h1>
+
+<p class="text-center">
+
+    <a asp-controller="Home" asp-action="Management" class="btn btn-primary m-2">پنل مدیریت</a>
+
+
+</p>
+<table class="table table-bordered table-hover table-light" style="direction:rtl">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Image/Banner/@(item.Picture1)" style="max-width:70px;max-height:70px" />
+                </td>
+                <td>
+                    <img src="~/Image/Banner/@(item.Picture2)" style="max-width:70px;max-height:70px" />
+                </td>
+                <td>
+                    <img src="~/Image/Banner/@(item.Picture3)" style="max-width:70px;max-height:70px" />
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-warning">ویرایش</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

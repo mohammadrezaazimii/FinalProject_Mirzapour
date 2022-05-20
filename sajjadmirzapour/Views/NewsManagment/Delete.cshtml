@@ -1,0 +1,40 @@
+﻿@model sajjadmirzapour.Models.News
+
+@{
+    ViewData["Title"] ="حذف";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>حذف</h1>
+
+<h3>آیا از حذف این خبر اطمینان دارید؟</h3>
+<div>
+
+    <hr />
+    <dl class="row table table-bordered">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NewsTitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NewsTitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NewsDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NewsDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NewsImage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NewsImage)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="NewsID" />
+        <input type="submit" value="حذف" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-primary">پنل مدیریت</a>
+    </form>
+</div>

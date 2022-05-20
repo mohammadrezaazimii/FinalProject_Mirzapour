@@ -1,0 +1,41 @@
+﻿@model sajjadmirzapour.Models.News
+
+@{
+    ViewData["Title"] = "افزودن";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>افزودن خبر جدید</h1>
+
+<hr />
+<div class="row" style="direction:rtl">
+    <div class="col-md-4" style="direction:rtl">
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NewsTitle" class="control-label"></label>
+                <input asp-for="NewsTitle" class="form-control" />
+                <span asp-validation-for="NewsTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewsDescription" class="control-label"></label>
+                <textarea asp-for="NewsDescription" class="form-control"></textarea>
+                <span asp-validation-for="NewsDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewsImage" class="control-label"></label><br />
+                <input type="file" asp-for="NewsImage" name="NewsImage" />
+            </div>
+            <div class="form-group">
+
+                <input type="submit" value="افزودن" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-primary">پنل مدیریت</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

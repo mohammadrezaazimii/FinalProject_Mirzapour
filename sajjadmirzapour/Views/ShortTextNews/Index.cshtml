@@ -1,0 +1,39 @@
+﻿@model IEnumerable<sajjadmirzapour.Models.ShortTextNews>
+@{
+    ViewData["Title"] = " لیست اخبار داغ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-center">اخبار داغ</h1>
+
+<p class="text-center">
+
+    <a asp-controller="Home" asp-action="Management" class="btn btn-primary m-2">پنل مدیریت</a>
+    <a asp-action="Create" class="btn btn-success">افزودن خبر جدید</a>
+
+</p>
+<table class="table table-bordered table-hover table-light" style="direction:rtl">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Reverse())
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td style="display:flex; gap:10px">
+                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-warning">ویرایش</a>
+                    <a asp-action="Details" asp-route-id="@item.id" class="btn btn-primary">جزئیات</a>
+                    <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

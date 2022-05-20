@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ShortNews>
+<aside class="widget widget-popular-posts" >
+    <h4 style="text-align:right;" class="widget-title">محبوب ترین مقالات</h4>
+    <ul class="post-list-small">
+        @foreach (var item in Model.Reverse())
+        {
+
+
+
+            <li class="post-list-small__item" >
+                <article class="post-list-small__entry clearfix">
+                    <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-100">
+                                <img src="~/Image/ShortNews/@(item.Picture)" alt="" class="post-list-small__img--rounded lazyload">
+                        </div>
+                    </div>
+                    <div class="post-list-small__body" >
+                        <h3 class="post-list-small__entry-title" style="text-align:right;">
+                            <a >@item.ShortDescription</a>
+                        </h3>
+                        <ul class="entry__meta" style="text-align:right;">
+                            <li class="entry__meta-author">
+                                <span>نویسنده:</span>
+                                <a class="text text-primary">@item.Writer</a>
+                            </li>
+                            <li class="entry__meta-date text text-warning" style="text-align:right;">
+                                @item.date
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </li>
+
+
+        }
+    </ul>
+</aside>

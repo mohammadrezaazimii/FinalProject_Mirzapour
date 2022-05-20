@@ -1,0 +1,35 @@
+﻿@model sajjadmirzapour.Models.ShortTextNews
+
+@{
+    ViewData["Title"] = "حذف";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-center">حذف خبر</h1>
+<p class="text-center">
+    <a asp-action="Index" class="btn btn-primary">بازگشت به لیست اخبار</a>
+
+</p>
+
+<h3 class="text-center">آیا از حذف اطمینان دارید؟</h3>
+
+<div>
+    <hr />
+    <dl class="row" style="direction:rtl">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+
+    <div class="row">
+        <div class="col-12">
+            <form asp-action="Delete" class="col-12">
+                <input type="hidden" asp-for="id" />
+                <input type="submit" value="حذف" class="btn btn-danger col-12" />
+            </form>
+        </div>
+    </div>
+</div>

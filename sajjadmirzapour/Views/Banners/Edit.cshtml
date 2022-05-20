@@ -1,0 +1,46 @@
+﻿@model sajjadmirzapour.Models.Banner
+
+@{
+    ViewData["Title"] = "ویرایش بنر";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-center">ویرایش</h1>
+<p class="text-center">
+    <a asp-action="Index" class="btn btn-primary ">بازگشت به لیست بنر ها</a>
+</p>
+<hr />
+<div class="row" style="direction:rtl">
+    <div class="col-md-12" style="direction:rtl">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="Picture1" class="control-label"></label>
+                <input asp-for="Picture1" type="file" class="form-control" name="Image1" accept="image/*" />
+                <span asp-validation-for="Picture1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Picture2" class="control-label"></label>
+                <input asp-for="Picture2" type="file" class="form-control" name="Image2" accept="image/*" />
+                <span asp-validation-for="Picture2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Picture3" class="control-label"></label>
+                <input asp-for="Picture3" type="file" class="form-control" name="Image3" accept="image/*" />
+                <span asp-validation-for="Picture3" class="text-danger"></span>
+            </div>
+            <div class="form-group col-12">
+                <input type="submit" value="ذخیره" class="btn btn-success col-12" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+    }

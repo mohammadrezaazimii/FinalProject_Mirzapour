@@ -1,0 +1,38 @@
+﻿@model List<ProNews>
+
+
+@foreach (var item in @Model)
+{
+    <div class="col-md-6">
+        <article class="entry card">
+            <div class="entry__img-holder card__img-holder">
+                    <div class="thumb-container thumb-70">
+                        <img src="~/Image/News/@(item.Picture)" class="entry__img lazyload" alt="" />
+                    </div>
+            </div>
+
+            <div class="entry__body card__body">
+                <div class="entry__header">
+
+                    <h2 class="entry__title" style="text-align:center;">
+                        <a>@item.NewsTitle</a>
+                    </h2>
+                    <ul class="entry__meta" style="text-align:right;">
+                        <li class="entry__meta-author">
+                            <span>نویسنده:</span>
+                            <a class="text text-primary">@item.Writer</a>
+                        </li>
+                        <li class="entry__meta-date text text-warning">
+                            @item.date
+                        </li>
+                    </ul>
+                </div>
+                <div class="entry__excerpt" style="text-align:right;">
+                    <p>
+                        @item.ShortDescription
+                    </p>
+                </div>
+            </div>
+        </article>
+    </div>
+}

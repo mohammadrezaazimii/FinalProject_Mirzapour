@@ -1,0 +1,32 @@
+﻿@model IEnumerable<sajjadmirzapour.Models.News>
+
+@{
+    ViewData["Title"] = "بخش خبری -";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <a asp-controller="NewsManagment" asp-action="Index" class="col-12 mb-5 btn btn-primary">ورود به بخش مدیریت</a>
+    </div>
+    <hr />
+</div>   
+<div class="alert alert-success text-center">
+    <h2>خبرگزاری سجاد میرزاپور</h2>
+</div>
+<div class="row" style="direction:rtl">
+
+
+    @foreach (var item in Model.Reverse())
+    {
+        <div class="col-md-4 col-sm-12 mb-4">
+
+            <div class="card" style="width: 18rem;">
+                <img src="~/Image/News/@(item.NewsImage)" class="card-img-top" alt="تصویر">
+                <div class="card-body">
+                    <h5 class="card-title text-center">@item.NewsTitle</h5>
+                    <p class="card-text text-center">@item.NewsDescription</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
